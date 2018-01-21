@@ -17,23 +17,32 @@ export function loginRequestAsync(loginObj){
             dispatch(loginSucceed(obj));
         })
         .catch((error)=>{
-            alert(error.message);
+            dispatch(loginError(error.message));
         })
-
-
     }
 }
 
 function loginRequest(){
     return{
-        type: actionTypes.LOGIN_REQUEST
+        type: actionTypes.LOGIN_PROGRESS
     }
 }
 function loginSucceed(data){
-    console.log(data);
     return{
         type: actionTypes.LOGIN_SUCCEED,
         data
     }
 }
 
+function loginError(error){
+    return{
+        type: actionTypes.LOGIN_ERROR,
+        error
+    }
+}
+
+export function loginErrorAlert(){
+    return{
+        type: actionTypes.LOGIN_ERROR_ALERT
+    }
+}
