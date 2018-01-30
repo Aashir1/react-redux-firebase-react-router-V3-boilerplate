@@ -73,7 +73,7 @@ class SignUp extends React.Component {
     }
     signIn = () => {
         console.log('signin is triggered');
-        browserHistory.push('/');
+        browserHistory.push('/login');
 
     }
     updateValue = (ev, target) => {

@@ -52,6 +52,7 @@ class DrawerUndockedExample extends React.Component {
   }
   signOut = () => {
     this.props.signOutUser()
+    this.setState({open: false});
   }
 
   handleToggle = () => this.setState({ open: !this.state.open });

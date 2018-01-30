@@ -14,7 +14,7 @@ export function signUpRequestAsync(SignupObj) {
         dbConfig.auth().createUserWithEmailAndPassword(SignupObj.email, SignupObj.password)
         .then(user => {
                 console.log('created user', user)
-                browserHistory.push('/home');
+                browserHistory.push('/');
                 return user.updateProfile({
                     displayName: SignupObj.name,
                 })

@@ -26,9 +26,9 @@ class Routers extends React.Component {
       //   </Switch>
       // </Router>
       <Router history={browserHistory}>
-          <Route path="/" component={Login} />
+          <Route path="/" component={Home} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/home" component={Home} />
+          <Route path="/login" component={Login} />
       </Router>
     )
   }

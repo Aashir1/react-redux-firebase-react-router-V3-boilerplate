@@ -7,7 +7,7 @@ export function logoutRequestAsync(){
         // dispatch(logoutRequest());
         dbConfig.auth().signOut()
       .then(()=>{
-          browserHistory.replace('/');
+          browserHistory.replace('/login');
           dispatch(logoutSucceed());
         }
       )
