@@ -1,13 +1,13 @@
 import actionTypes from './actionTypes';
 import dbConfig from './firebaseConfig';
-import {browserHistory} from 'react-router';
+import History from '../../History';
 export function loginRequestAsync(loginObj){
     return (dispatch)=>{
         console.log(loginObj);
         dispatch(loginRequest());
         dbConfig.auth().signInWithEmailAndPassword(loginObj.email, loginObj.password)
         .then(user=>{
-            browserHistory.push('/');
+            History.push('/home');
             let obj={
                 name: user.displayName,
                 uid: user.uid,

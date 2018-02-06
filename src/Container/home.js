@@ -1,15 +1,11 @@
 import React from 'react';
 import dbConfig from '../store/action/firebaseConfig';
-import applicationLogoutReducer from '../store/reducers/logoutReducer';
-import {logoutRequestAsync} from '../store/action/logout';
 function mapStateToProps(state) {
     return {
-        currentUser: state.applicationLogoutReducer.currentUser
     }
 }
 function mapDispatchToProps(dispatch) {
     return {
-        signInUser: (dataObj)=>dispatch(logoutRequestAsync(dataObj))
     }
 }
 class Home extends React.Component {

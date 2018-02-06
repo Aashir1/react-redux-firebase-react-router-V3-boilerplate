@@ -1,12 +1,7 @@
 import actionTypes from './actionTypes';
 import dbConfig from './firebaseConfig';
-import signupReducer from '../reducers/signupReducer';
-import { Redirect } from 'react-router-dom';
-import { browserHistory } from 'react-router';
+import History from '../../History';
 // console.log(signUpRequest());
-class SignupActions{
-
-}
 export function signUpRequestAsync(SignupObj) {
     return (dispatch) => {
         console.log('till here code run')
@@ -14,7 +9,7 @@ export function signUpRequestAsync(SignupObj) {
         dbConfig.auth().createUserWithEmailAndPassword(SignupObj.email, SignupObj.password)
         .then(user => {
                 console.log('created user', user)
-                browserHistory.push('/');
+                History.push('/home');
                 return user.updateProfile({
                     displayName: SignupObj.name,
                 })
@@ -31,7 +26,7 @@ export function signUpRequestAsync(SignupObj) {
             })
             .catch((error) => {
                 dispatch(signUpError(error.message));
-                browserHistory.push('/signup');
+                History.push('/signup');
                 // alert(error.message);
             })
 

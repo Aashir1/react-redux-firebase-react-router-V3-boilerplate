@@ -1,19 +1,11 @@
 import React from 'react';
-import dbConfig from '../store/action/firebaseConfig';
-import IconMenu from 'material-ui/IconMenu';
-import IconButton from 'material-ui/IconButton';
-import FontIcon from 'material-ui/FontIcon';
-import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
+import dbConfig from '../../store/action/firebaseConfig';
 import MenuItem from 'material-ui/MenuItem';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import RaisedButton from 'material-ui/RaisedButton';
-import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
-import { browserHistory } from 'react-router';
-import applicationLogoutReducer from '../store/reducers/logoutReducer';
-import { logoutRequestAsync } from '../store/action/logout';
+import { logoutRequestAsync } from '../../store/action/logout';
 import {connect} from 'react-redux';
+import './navbar.css';
 
 const styles = {
   headline: {
@@ -66,6 +58,7 @@ class DrawerUndockedExample extends React.Component {
     return (
       <div>
         <AppBar
+          className={`nav`}
           title="boilerplate"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           onLeftIconButtonClick={this.handleToggle}

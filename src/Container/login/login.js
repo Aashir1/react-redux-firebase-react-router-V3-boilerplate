@@ -1,14 +1,12 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
+import History from '../../History';
 import { loginRequestAsync, loginErrorAlert } from '../../store/action/login';
-import applicationSignInReducer from '../../store/reducers/loginReducer';
 import CircularProgress from 'material-ui/CircularProgress';
 import ErrorAlert from '../../Component/errorAlert';
+import './login.css';
 const style = {
     paper: {
         height: '100%',
@@ -19,9 +17,11 @@ const style = {
         padding: '40px'
     },
     paperWapper: {
-        width: '70%',
+        width: '40vw',
         margin: '0 auto',
-        marginTop: 100
+        marginTop: '100px',
+        border: '5px solid darkgrey',
+        padding: '30px'
 
     },
     textStyle: {
@@ -30,7 +30,8 @@ const style = {
     button: {
         width: '100%',
         marginTop: '10px',
-        marginBottom: '10px'
+        marginBottom: '10px',
+        
     },
     heading: {
         color: '#212121'
@@ -63,7 +64,7 @@ class Login extends React.Component {
         }
     }
     register = () => {
-        browserHistory.push('/signup');
+        History.push('/signup');
     }
     updateValue = (ev, target) => {
 
@@ -89,31 +90,32 @@ class Login extends React.Component {
 
                 {
                     this.props.isProgressing ? (
-                        <CircularProgress style={{ margin: '50%' }} size={80} thickness={5} />
+                        <div style={{textAlign:'center'}}>
+                            <CircularProgress style={{margin:'260px auto'}} size={80} thickness={5} />
+                        </div>
                     )
                         :
                         <div style={style.paperWapper}>
-                            <Paper style={style.paper} zDepth={3} >
+                            
                                 <h1 style={style.heading}>Login</h1>
                                 <TextField
                                     onChange={(event) => { this.updateValue(event, 'email') }}
                                     value={this.state.email}
                                     style={style.textStyle}
                                     type='email'
-                                    hintText=""
-                                    floatingLabelText="Email*"
+                                    underlineFocusStyle={{ borderBottom: '2px solid #2196f3 ' }}
+                                    hintText="Email"
                                 /><br />
                                 <TextField
                                     onChange={(event) => { this.updateValue(event, 'password') }}
                                     value={this.state.password}
                                     style={style.textStyle}
                                     type='password'
-                                    hintText=""
-                                    floatingLabelText="Password"
+                                    underlineFocusStyle={{ borderBottom: '2px solid #2196f3 ' }}
+                                    hintText="Password"
                                 /><br />
-                                <RaisedButton onClick={this.signIn} label="Login" primary={true} style={style.button} />
-                                <RaisedButton onClick={this.register} label="Register" primary={true} style={style.button} />
-                            </Paper>
+                                <RaisedButton className='btn' onClick={this.signIn} label="Login" primary={true}style={style.button} />
+                                <RaisedButton className='btn' onClick={this.register} label="Register" primary={true} style={style.button} />
                         </div>
                 }
             </div>

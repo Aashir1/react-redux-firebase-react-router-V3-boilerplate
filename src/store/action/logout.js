@@ -1,13 +1,13 @@
 import actionTypes from './actionTypes';
 import dbConfig from './firebaseConfig';
-import {browserHistory} from 'react-router';
+import History from '../../History';
 export function logoutRequestAsync(){
     return (dispatch)=>{
         // console.log(logoutObj);
         // dispatch(logoutRequest());
         dbConfig.auth().signOut()
       .then(()=>{
-          browserHistory.replace('/login');
+          History.replace('/');
           dispatch(logoutSucceed());
         }
       )

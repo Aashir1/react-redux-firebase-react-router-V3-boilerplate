@@ -1,35 +1,28 @@
 import React from 'react'
-// import {
-//   Router,
-//   Route,
-//   Link,
-//   Switch
-// } from 'react-router-dom';
+import {
+  Router,
+  Route,
+  Switch
+} from 'react-router-dom';
 
 import Login from './Container/login/login';
 import SignUp from './Container/signup/signup';
 import Home from './Container/home'
-import createBrowserHistory from 'history/createBrowserHistory'
-import { Route, Router, browserHistory } from 'react-router';
-const customHistory = createBrowserHistory()
+import History from './History';
 
 class Routers extends React.Component {
   render() {
     return (
-      //   <Router history = {customHistory}>
-      //   <Switch>   
-      //     <Route exact path="/" component={Login}/>
-      //     <Route path="/signup" component={SignUp}/>
-      //     <Route path="/home" component={Home}/>
+        <Router history = {History}>
+        <Switch>   
+          <Route exact path="/" component={Login}/>
+          <Route path="/signup" component={SignUp}/>
+          <Route path="/home" component={Home}/>
 
-      //     {/* <Route path="/topics" component={Topics}/> */}
-      //   </Switch>
-      // </Router>
-      <Router history={browserHistory}>
-          <Route path="/" component={Home} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/login" component={Login} />
+          {/* <Route path="/topics" component={Topics}/> */}
+        </Switch>
       </Router>
+      
     )
   }
 }
