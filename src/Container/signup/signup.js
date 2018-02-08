@@ -90,7 +90,8 @@ class SignUp extends React.Component {
             <div>
                 <ErrorAlert handleClose={this.dispatchClose} open={this.props.isError} errorText={this.props.errorText} />
                 {
-                    this.props.isProgressing ?
+                    // this.props.isProgressing ?
+                    true?
                         <CircularProgress style={{ margin: '50%' }} size={80} thickness={5} />
                         : (
                             <div style={style.paperWapper}>
